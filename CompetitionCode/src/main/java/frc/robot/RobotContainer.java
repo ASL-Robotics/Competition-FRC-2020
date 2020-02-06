@@ -1,3 +1,4 @@
+
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2018-2019 FIRST. All Rights Reserved.                        */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -7,45 +8,69 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.XboxController;
+import static frc.robot.Constants.*;
+
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
-/**
- * This class is where the bulk of the robot should be declared.  Since Command-based is a
- * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls).  Instead, the structure of the robot
- * (including subsystems, commands, and button mappings) should be declared here.
- */
+
+import frc.robot.subsystems.*;
+
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
+
+    // IMPORTING STUFF AND STUFF
+    private final RobotCommands robotCommands = new RobotCommands();
 
 
-  /**
-   * The container for the robot.  Contains subsystems, OI devices, and commands.
-   */
-  public RobotContainer() {
-    // Configure the button bindings
-    configureButtonBindings();
-  }
-
-  /**
-   * Use this method to define your button->command mappings.  Buttons can be created by
-   * instantiating a {@link GenericHID} or one of its subclasses ({@link
-   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a
-   * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
-   */
-  private void configureButtonBindings() {
-  }
+    // == JOYSTICK & BUTTON BINDINGS == //
 
 
-  /**
-   * Use this to pass the autonomous command to the main {@link Robot} class.
-   *
-   * @return the command to run in autonomous
-   */
-  public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    return null; //TODO- auto command
-  }
+    // NEW JOYSTICK
+    public final Joystick opController = new Joystick(OPERATOR_CONTROLLER);
+
+    // CONFIG BUTTON BINDINGS (See constants.java to change specific ports etc.)
+    // CLIMBER BUTTONS
+    private final JoystickButton 
+                                 // CONTROL PANEL BUTTONS
+                                 controlSpinButton = new JoystickButton(opController, RIGHT_STICK_BUTTON),
+                                 controlLiftButton = new JoystickButton(opController, Y),
+                                 controlMatchButton = new JoystickButton(opController, MATCH_CONTROL);
+
+                              
+                                 
+
+   
+   
+
+    // ROBOT CONTAINER
+    public RobotContainer() {
+        configureButtonActions();
+    }
+
+    // CONFIG BUTTON ACTIONS
+    private void configureButtonActions() {
+
+        
+        // TODO: make a control spin times counter?
+
+        controlSpinButton.whenHeld(robotCommands.spinHalfEitherEight);
+        controlMatchButton.whenHeld(robotCommands.controlSpinIfNoMatch);
+        controlLiftButton.whenPressed(robotCommands.liftControlMaybe);
+
+       
+        
+    }
+
+    
+   
+    /**
+     * Use this to pass the autonomous command to the main {@link Robot} class.
+     *
+     * @return the command to run in autonomous
+     */
+    public Command getAutonomousCommand() {
+      // random commmand cos i need something here
+      return robotCommands.controlStop;
+    }
 }
