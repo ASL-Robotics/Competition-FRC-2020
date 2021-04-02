@@ -10,7 +10,6 @@ import static java.lang.Math.sqrt;
 // TestAutoCommandGroup: For testing
 public class SlalomCommandAuto extends SequentialCommandGroup {
     public SlalomCommandAuto(Drivetrain drivetrain) {
-        SmartDashboard.putData("Can you read this?", 0);
         addCommands(
             new TurnCommand(drivetrain, -45, 0.4),//Initial turn out of base
             new MoveCommand(drivetrain, sqrt(4896), 0.8), //Moving above the 5ft slaloms

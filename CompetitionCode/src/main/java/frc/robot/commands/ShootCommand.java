@@ -43,7 +43,7 @@ public class ShootCommand extends CommandBase {
   public void initialize() {
     if(isClose) shooter.setAngleBack();
     else shooter.setAngleForward();
-    storage.resetBalls();
+    //storage.resetBalls();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
