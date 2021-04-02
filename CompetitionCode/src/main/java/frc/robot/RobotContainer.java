@@ -157,9 +157,9 @@ public class RobotContainer {
     modeSwitchButton.whenHeld(modeSwitch);
 
     // Intake
-    intakeButton.whileHeld(new IntakeCommand(INTAKE));
+    intakeButton.whenHeld(new IntakeCommand(INTAKE));
 
-    outttakeButton.whileHeld(new OuttakeCommand(INTAKE));
+    outttakeButton.whenHeld(new OuttakeCommand(INTAKE));
 
     raiseIntakeButton.whenPressed(retractIntake.withTimeout(1));
 
