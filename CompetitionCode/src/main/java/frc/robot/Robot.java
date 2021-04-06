@@ -81,7 +81,7 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     // m_autonomousCommand = m_robotContainer.getAutonomousCommand();
     m_autonomousCommand = autoChooser.getSelected();
-    //Scheduler.getInstance().add(m_autonomouseCommand);
+    // Scheduler.getInstance().add(m_autonomouseCommand);
     //m_autonomousCommand = new SlalomCommand()
 
     // schedule the autonomous command (example)

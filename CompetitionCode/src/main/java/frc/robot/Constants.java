@@ -82,6 +82,10 @@ public final class Constants {
   public static final double LIFTER_SPEED_REVERSE = -1;
   public static final double GEAR_SPEED = 0.75;
 
+  // AUTO CONSTANTS
+  public static final double MOVE_SPEED = 0.4;
+  public static final double TURN_SPEED = 0.2;
+
 
   // == JOYSTICK CONSTANTS == //
 
