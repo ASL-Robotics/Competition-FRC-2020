@@ -12,9 +12,9 @@ public class BarrelCommandAuto extends SequentialCommandGroup {
         (
             new MoveCommand(drivetrain, 150, MOVE_SPEED), //Move in position to turn for our first obstacle
             new TurnCommand(drivetrain, 135, TURN_SPEED), //Turn so that we are at a perfectly diagonal slope                                         
-            new MoveCommand(drivetrain, Math.sqrt(150), MOVE_SPEED), //Here we move across two sides of the "square" that we created around the first obstacle
+            new MoveCommand(drivetrain, 40, MOVE_SPEED), //Here we move across two sides of the "square" that we created around the first obstacle
             new TurnCommand(drivetrain, 90, TURN_SPEED),
-            new MoveCommand(drivetrain, Math.sqrt(150), MOVE_SPEED),
+            new MoveCommand(drivetrain, 40, MOVE_SPEED),
             new TurnCommand(drivetrain, 90, TURN_SPEED),
               
             new MoveCommand(drivetrain, Math.sqrt(150),  MOVE_SPEED),//Move to the final turn of the square
